@@ -1,0 +1,36 @@
+profile: production
+
+exclude_paths:
+    - .devcontainer/
+    - .github/workflows/
+    - .github/
+    - docs/docsite/
+    - codecov.yml
+
+loop_var_prefix: "^(__|{role}_)"
+
+var_naming_pattern: "^[a-z_][a-z0-9_]*$"
+
+use_default_rules: true
+
+offline: true
+
+skip_list:
+  - skip_this_tag
+
+enable_list:
+    - args
+    - empty-string-compare # opt-in
+    - no-log-password # opt-in
+    - no-same-owner # opt-in
+    - name[prefix] # opt-in
+    - yaml
+
+warn_list:
+    - skip_this_tag
+    - experimental
+
+kinds:
+    - yaml: "**/*.yaml-too"
+
+task_name_prefix: "{stem} | "

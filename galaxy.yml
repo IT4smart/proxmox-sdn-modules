@@ -1,0 +1,18 @@
+namespace: "it4smart"
+name: "proxmox"
+version: "0.1.0"
+readme: README.md
+authors:
+  - hack3d (github.com/hack3d)
+tags:
+  - "proxmox"
+  - "linux"
+  - "hypervisor"
+description: Ansible modules for Proxmox VE SDN feature
+license_file: LICENSE
+repository: https://github.com/IT4smart/proxmox-sdn-modules
+homepage: https://github.com/IT4smart/proxmox-sdn-modules
+issues: https://github.com/IT4smart/proxmox-sdn-modules/issues
+build_ignore:
+  - ".gitignore"
+  - ".devcontainer"
