@@ -116,6 +116,7 @@ class ProxmoxSdnSubnets(ProxmoxAnsible):
           return
       try:
           self.proxmox_api.cluster.sdn.vnets(vnet_id).subnets.post(**subnet_infos)
+          self.proxmox_api.cluster.sdn.put()
       except Exception as e:
           self.module.fail_json(msg="Failed to create subnet with ID {0}: {1}".format(subnet_id, e))
     
@@ -134,6 +135,7 @@ class ProxmoxSdnSubnets(ProxmoxAnsible):
       else:
         try:
             self.proxmox_api.cluster.sdn.vnets(vnet_id).subnets(subnet_id).delete()
+            self.proxmox_api.cluster.sdn.put()
         except Exception as e:
             self.module.fail_json(msg="Failed to delete subnet with ID {0}: {1}".format(subnet_id, e))
 

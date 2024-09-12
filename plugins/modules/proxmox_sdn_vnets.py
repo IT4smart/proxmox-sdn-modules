@@ -99,6 +99,7 @@ class ProxmoxSdnVnets(ProxmoxAnsible):
 
         try:
             self.proxmox_api.cluster.sdn.vnets.post(**vnet_infos)
+            self.proxmox_api.cluster.sdn.put()
         except Exception as e:
             self.module.fail_json(msg="Failed to create vnet with ID {0}: {1}".format(vnet_id, e))
       
@@ -117,6 +118,7 @@ class ProxmoxSdnVnets(ProxmoxAnsible):
 
             try:
                 self.proxmox_api.cluster.sdn.vnets(vnet_id).delete()
+                self.proxmox_api.cluster.sdn.put()
             except Exception as e:
                 self.module.fail_json(msg="Failed to delete vnet with ID {0}: {1}".format(vnet_id, e))
         else:
