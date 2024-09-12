@@ -220,6 +220,7 @@ class ProxmoxSdnZones(ProxmoxAnsible):
 
         try:
             self.proxmox_api.cluster.sdn.zones.post(**zone_infos)
+            self.proxmox_api.cluster.sdn.put()
         except Exception as e:
             self.module.fail_json(msg="Failed to create zone with ID {0}: {1}".format(zone_id, e))
       
@@ -238,6 +239,7 @@ class ProxmoxSdnZones(ProxmoxAnsible):
 
             try:
                 self.proxmox_api.cluster.sdn.zones(zone_id).delete()
+                self.proxmox_api.cluster.sdn.put()
             except Exception as e:
                 self.module.fail_json(msg="Failed to delete zone with ID {0}: {1}".format(zone_id, e))
         else:
